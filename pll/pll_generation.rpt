@@ -1,0 +1,34 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate C:\Users\jkase\Documents\UM\Fall2020\EmeddedSystems\Lab2\BaseProject\pll.qsys --block-symbol-file --output-directory=C:\Users\jkase\Documents\UM\Fall2020\EmeddedSystems\Lab2\BaseProject\pll --family="Cyclone V" --part=5CSEMA5F31C6
+Progress: Loading BaseProject/pll.qsys
+Progress: Reading input file
+Progress: Adding pll_0 [altera_pll 16.0]
+Progress: Parameterizing module pll_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: pll.pll_0: The legal reference clock frequency is 5.0 MHz..800.0 MHz
+Info: pll.pll_0: Able to implement PLL with user settings
+Warning: pll.pll_0: pll_0.locked must be exported, or connected to a matching conduit.
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate C:\Users\jkase\Documents\UM\Fall2020\EmeddedSystems\Lab2\BaseProject\pll.qsys --synthesis=VHDL --output-directory=C:\Users\jkase\Documents\UM\Fall2020\EmeddedSystems\Lab2\BaseProject\pll\synthesis --family="Cyclone V" --part=5CSEMA5F31C6
+Progress: Loading BaseProject/pll.qsys
+Progress: Reading input file
+Progress: Adding pll_0 [altera_pll 16.0]
+Progress: Parameterizing module pll_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: pll.pll_0: The legal reference clock frequency is 5.0 MHz..800.0 MHz
+Info: pll.pll_0: Able to implement PLL with user settings
+Warning: pll.pll_0: pll_0.locked must be exported, or connected to a matching conduit.
+Info: pll: Generating pll "pll" for QUARTUS_SYNTH
+Info: pll_0: "pll" instantiated altera_pll "pll_0"
+Info: pll: Done "pll" with 2 modules, 3 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

@@ -1,0 +1,7 @@
+# VHDL
+
+*.bak
+*.qsf
+*.qws
+*.qpf
+**/output_files
