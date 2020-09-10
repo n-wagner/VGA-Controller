@@ -5,7 +5,7 @@ use ieee.numeric_std.all;
 PACKAGE MY IS
 	PROCEDURE square(
 		SIGNAL Xcur,Ycur,Xpos,Ypos	:	IN INTEGER;
-		SIGNAL RGB						:	OUT STD_LOGIC_VECTOR(3 downto 0);
+		SIGNAL RGB						:	OUT STD_LOGIC_VECTOR(3 downto 0);  --not much better color resolution with 8 bits hence 4 bits
 		SIGNAL DRAW						: 	OUT STD_LOGIC
 	);
 END MY;
