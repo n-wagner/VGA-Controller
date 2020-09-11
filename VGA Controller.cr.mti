@@ -1,0 +1,53 @@
+{D:/GitHub Repositories/My Repositories/VGA Controller/subR.vhd} {1 {vcom -work work -2002 -explicit -stats=none {D:/GitHub Repositories/My Repositories/VGA Controller/subR.vhd}
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling package MY
+-- Compiling package body MY
+-- Loading package MY
+
+} {} {}} {D:/GitHub Repositories/My Repositories/VGA Controller/sync.vhd} {1 {vcom -work work -2002 -explicit -stats=none {D:/GitHub Repositories/My Repositories/VGA Controller/sync.vhd}
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package MY
+-- Compiling entity SYNC
+-- Compiling architecture MAIN of SYNC
+
+} {} {}} {D:/GitHub Repositories/My Repositories/VGA Controller/drawScreen.vhd} {1 {vcom -work work -2002 -explicit -stats=none {D:/GitHub Repositories/My Repositories/VGA Controller/drawScreen.vhd}
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity drawScreen
+-- Compiling architecture MAIN of drawScreen
+
+} {} {}} {D:/GitHub Repositories/My Repositories/VGA Controller/vga.vhd} {1 {vcom -work work -2002 -explicit -stats=none {D:/GitHub Repositories/My Repositories/VGA Controller/vga.vhd}
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity VGA
+-- Compiling architecture MAIN of VGA
+
+} {} {}} {D:/GitHub Repositories/My Repositories/VGA Controller/sync_tb.vhd} {2 {vcom -work work -2002 -explicit -stats=none {D:/GitHub Repositories/My Repositories/VGA Controller/sync_tb.vhd}
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity TEST_SYNC
+-- Compiling architecture TEST of TEST_SYNC
+-- Loading package NUMERIC_STD
+-- Loading package MY
+-- Loading entity SYNC
+** Warning: D:/GitHub Repositories/My Repositories/VGA Controller/sync_tb.vhd(67): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+
+} {} {}}
