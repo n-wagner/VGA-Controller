@@ -22,9 +22,11 @@ begin
 			reg <= '0';
 		elsif (clk'event AND clk = '1') then
 			counter <= counter + 1;
-			-- 50 MHz in or 50 million ticks per second
-			-- 10 Hz or 10 ticks per second out (counter is for half a tick)
-			if (counter = 2500000) then
+			-- 108 MHz clock in from the PLL
+			-- Want to be able to move 200 pixels per second with the switch
+			-- So need 200 rising ticks per second
+			-- To get 200 rising ticks per second, need 108M/400 = 270000
+			if (counter = 270000) then
 				reg <= NOT reg;
 				counter <= 1;
 			end if;

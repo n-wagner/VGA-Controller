@@ -57,7 +57,7 @@ ARCHITECTURE MAIN OF VGA IS
 BEGIN
  
 	C: pll PORT MAP (CLOCK_24(0),VGA_RESET,VGACLK);
-	C1: SYNC PORT MAP(VGACLK, tick_counter, switch1, switch2, switch3, VGA_RESET,VGA_HS,VGA_VS,VGA_R,VGA_G,VGA_B);
+	C1: SYNC PORT MAP(VGACLK, VGA_RESET, tick_counter, switch1, switch2, switch3,VGA_HS,VGA_VS,VGA_R,VGA_G,VGA_B);
 	t: ticker PORT MAP (clk, VGA_RESET, tick_counter);
 
 	VGA_CLK <= VGACLK;

@@ -26,8 +26,10 @@ ARCHITECTURE MAIN OF SYNC IS
 	--SIGNAL square1_x_axis,square1_y_axis: INTEGER RANGE 0 TO 1687:=0;
 	--SIGNAL square2_x_axis,square2_y_axis: INTEGER RANGE 0 TO 1687:=0;
 	SIGNAL draw 	: STD_LOGIC;
-	signal square1_pos: integer:=0;
-	signal square2_pos: integer:=0;
+	signal square1_xpos: integer:=0;
+	signal square2_xpos: integer:=0;
+	signal square1_ypos: integer:=0;
+	signal square2_ypos: integer:=0;
 	SIGNAL HPOS	: INTEGER RANGE 0 TO 1687:=0;
 	SIGNAL VPOS	: INTEGER RANGE 0 TO 1065:=0;
 	type states is (disp, no_disp, h_sp, v_sp, both_sp);
@@ -39,24 +41,32 @@ BEGIN
 	
 	--updates square position based on ticks
 	--ticks should be less than frames per second (60 Hz = 60 fps => ticks < 60 Hz)
+	
+	--I think this should just use the same 108MHz clock or the timing will get confusing
+	--let's start the squares off in different vertical spots so they don't overlap
+	--this only gets called every half of a second, need to figure out how fast to move it
+	--on every other call (due to tick_counter)
+	--need x and y pos for both squares
 	update_square_pos: process (tick_counter, rst)
 	begin
 		if (rst = '1') then
-			square1_pos <= 0;
-			square2_pos <= 0;
-		elsif (tick_counter = '1') then
+			square1_xpos <= 0;
+			square1_ypos <= 0;
+			square2_xpos <= 0;
+			square2_ypos <= 512;
+		elsif rising_edge(tick_counter) then
 			--Each tick updates the respective position if the switch is on
 			--Position capped at horizontal edge of screen - size of box
 			if (switch1 = '1') then
-				square1_pos <= square1_pos + 1;
-				if (square1_pos > 1280 - 100) then
-					square1_pos <= 1280 - 100;
+				square1_xpos <= square1_xpos + 1;
+				if (square1_xpos > 1279 - 100) then
+					square1_xpos <= 0;
 				end if;
 			end if;
 			if (switch2 = '1') then
-				square2_pos <= square2_pos + 1;
-				if (square2_pos > 1280 - 100) then
-					square2_pos <= 1280 - 100;
+				square2_xpos <= square2_xpos + 1;
+				if (square2_xpos > 1279 - 100) then
+					square2_xpos <= 0;
 				end if;
 			end if;
 		end if;
@@ -105,22 +115,31 @@ BEGIN
 	--given current pixel coordinates and draw signal will determine the RGB values
 	drawing: process(hpos, vpos, draw)
 	begin
-		R <= "00000000";
-		G <= "00000000";
-		B <= "00000000";
 		if (draw = '1') then
-			if ((hpos > (100 + square1_pos)) AND (hpos < (200 + square1_pos)) AND (vpos > 100) AND (vpos < 200)) then
+			if ((hpos >= (square1_xpos)) AND (hpos < (square1_xpos + 100)) AND (vpos >= square1_ypos) AND (vpos < square1_ypos + 100)) then
 				--sw3 controls color (makes square1 blue) otherwise it is red_green
 				if (switch3 = '1') then
 					B <= "11111111";
+					R <= "00000000";
+					G <= "00000000";
 				else
 					R <= "11111111";
 					G <= "11111111";
+					B <= "00000000";
 				end if;
-			elsif ((hpos > (100 + square2_pos)) AND (hpos < (200 + square2_pos)) AND (vpos > 300) AND (vpos < 400)) then
+			elsif ((hpos >= (square2_xpos)) AND (hpos < (square2_xpos + 100)) AND (vpos >= square2_ypos) AND (vpos < square2_ypos + 100)) then
 				R <= "11111111";
 				G <= "11111111";
+				B <= "00000000";
+			else
+				R <= "00000000";
+				G <= "00000000";
+				B <= "00000000";
 			end if;
+		else
+			R <= "00000000";
+			G <= "00000000";
+			B <= "00000000";
 		end if;
 	end process;
 
